@@ -1,17 +1,20 @@
 export const fetchData = async (keyWord) => {
-  console.log("keyWord > ", keyWord);
-  const endPoint = `https://pokeapi.co/api/v2/pokemon/${keyWord}`;
-  const response = await fetch(endPoint);
+  const endpoint = `https://pokeapi.co/api/v2/pokemon/${keyWord}`;
+
+  const response = await fetch(endpoint);
+
   const data = await response.json();
   const pokemonData = {
-    id: data.id,
     name: data.name,
     type: data.types[0].type.name,
-    image: data.sprites.other.dream_world.front_default,
+    id: data.id,
+    imgUrl: data.sprites.other.dream_world.front_default,
   };
 
+  // console.log("response >", response);
+  // console.log("data >", data);
+  // console.log("keyword >", keyWord);
+  // console.log("endpoint >", endpoint);
+  console.log("pokemon data >", pokemonData);
   return pokemonData;
-  // console.log(pokemonData);
-  //   console.log("response >", response);
-  console.log("data >", data);
 };
