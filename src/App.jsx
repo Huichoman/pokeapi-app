@@ -18,7 +18,9 @@ export const App = () => {
       <h1>Pokemon</h1>
       <SearchPokemon onSearchPokemon={onSearchPokemon} />
 
-      {/* <CardsGrid /> */}
+      {pokemonArray.map((pokemon, index) => (
+        <PokemonCard key={pokemon[index] + index} pokemon={pokemon} />
+      ))}
     </>
   );
 };
