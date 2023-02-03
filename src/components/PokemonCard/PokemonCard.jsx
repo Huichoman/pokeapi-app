@@ -25,7 +25,12 @@ export const PokemonCard = ({ pokemon }) => {
 
   return (
     <>
-      {!isLoading && <div className={styles.pokemoncard}>{pokemonData.id}</div>}
+      {!isLoading && (
+        <div className={styles.pokemoncard}>
+          {pokemonData.name}
+          <img src={pokemonData.imgUrl} />
+        </div>
+      )}
     </>
   );
 };
